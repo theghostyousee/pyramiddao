@@ -1,13 +1,462 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+::before,
+::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --res: calc(0.1 * 1vmin);
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("./bg.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  justify-content: center;
+  position: relative;
+}
+
+body:after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./lines.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  justify-content: center;
+  opacity: 0.7;
+
+  z-index: -1;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+  gap: 1vmin;
+}
+
+.left-part {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.para {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  width: 90%;
+
+  height: 50%;
+}
+
+.para img {
+  width: 700px;
+}
+
+.line {
+  width: 50%;
+  padding: 0 1em;
+  height: 7px;
+  background-color: #fff;
+}
+
+.twitter {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.twitter img {
+  margin-top: 40px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+}
+
+.enter img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+
+@media screen and (max-width: 1370px) {
+  .para img {
+    width: 600px;
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+  }
+
+  .enter img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .right-part img {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .para img {
+    width: 550px;
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+  }
+
+  .enter img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+  }
+
+  .right-part img {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .app-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+  }
+  .right-part {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-part {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+  }
+
+  .para {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
+  }
+
+  #paras {
+    border-bottom: 7px solid #fff;
+  }
+
+  .line {
+    width: 70%;
+    padding: 0 1em;
+    height: 7px;
+    display: none;
+    background-color: #fff;
+  }
+
+  .twitter {
+    display: flex;
+    width: 90%;
+    justify-content: start;
+    gap: 4vmin;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .app-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+  }
+  .right-part {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-part {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+  }
+
+  .para {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
+  }
+
+  #paras {
+    border-bottom: 7px solid #fff;
+  }
+
+  .line {
+    width: 70%;
+    padding: 0 1em;
+    height: 7px;
+    display: none;
+    background-color: #fff;
+  }
+
+  .twitter {
+    display: flex;
+    width: 90%;
+    justify-content: start;
+    gap: 4vmin;
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+  }
+
+  .para img {
+    width: 400px;
+  }
+
+  .enter img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px !important;
+
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+
+  .app-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+  }
+  .right-part {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-part {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+  }
+
+  .para {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+  }
+
+  #paras {
+    border-bottom: 7px solid #fff;
+  }
+
+  .line {
+    width: 70%;
+    padding: 0 1em;
+    height: 7px;
+    display: none;
+    background-color: #fff;
+  }
+
+  .twitter {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 4vmin;
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+  }
+
+  .para img {
+    width: 350px;
+  }
+
+  .enter img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px !important;
+
+  }
+
+  .right img{
+    width: 150px;
+  }
+
+  .twitter img {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+  }
+
+}
+
+
+@media screen and (max-width: 420px) {
+
+  .app-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+  }
+  .right-part {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-part img{
+    width: 250px;
+  }
+  .left-part {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+  }
+
+  .para {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 60%;
+  }
+
+  .para img{
+    width: 300px;
+  }
+
+  #paras {
+    border-bottom: 7px solid #fff;
+  }
+
+  .line {
+    width: 70%;
+    padding: 0 1em;
+    height: 7px;
+    display: none;
+    background-color: #fff;
+  }
+
+  .twitter {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    gap: 4vmin;
+    width: 100%;
+  }
+  .twitter img{
+    width: 50px;
+  }
+
+
 }

@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import text from "./texto.svg";
+import pyramid from "./house.webp";
+import twitter from "./twitter.svg";
+import btn from "./enter.svg";
 
 function App() {
+
+  const url = "https://ctt.ac/qScfx";
+
+  const twitter = "https://twitter.com/dao_pyramid";
+
+  function openTwitter() {
+    window.open(url, "_blank");
+  }
+
+  function openProfile() {
+    window.open(twitter, "_blank");
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-wrapper">
+        <div className="left-part">
+          <div className="para">
+            <img src={text} id="paras"></img>
+            <div className="line"></div>
+            <div className="twitter">
+              <img src={twitter} onClick={openProfile} ></img>
+              <div className = "enter">
+                <img src={btn} onClick={openTwitter}></img>
+              </div>
+              
+
+            </div>
+          </div>
+        </div>
+
+        <div className="right-part">
+          <img src={pyramid}></img>
+        </div>
+      </div>
     </div>
   );
 }
