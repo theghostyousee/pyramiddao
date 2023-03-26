@@ -1,7 +1,7 @@
 import "./index.css";
 import text from "./texto.svg";
 import pyramid from "./house.webp";
-import twitter from "./twitter.svg";
+import twitterpicture from "./twitter.svg";
 import btn from "./enter.svg";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
             <img src={text} id="paras"></img>
             <div className="line"></div>
             <div className="twitter">
-              <img src={twitter} onClick={openProfile} ></img>
+              <img src={twitterpicture} onClick={openProfile} ></img>
               <div className = "enter">
                 <img src={btn} onClick={openTwitter}></img>
               </div>
